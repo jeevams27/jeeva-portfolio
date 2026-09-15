@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { AI_PIPELINE_STAGES } from '../data/portfolioData';
 import {
   Layers,
-  ArrowRight,
   Cpu,
   CheckCircle2,
   Terminal,
@@ -10,12 +9,11 @@ import {
   Zap,
   Sparkles,
   Bot,
-  Database,
   Search,
 } from 'lucide-react';
 
 export const AIEngineeringSection: React.FC = () => {
-  const [activeStageId, setActiveStageId] = useState<number>(3); // Default to Prompt/Agent or Retrieval
+  const [activeStageId, setActiveStageId] = useState<number>(3);
 
   const activeStage =
     AI_PIPELINE_STAGES.find((s) => s.id === activeStageId) || AI_PIPELINE_STAGES[0];
@@ -43,7 +41,7 @@ export const AIEngineeringSection: React.FC = () => {
 
   return (
     <section id="ai-systems" className="py-20 px-4 sm:px-6 lg:px-8 relative border-t border-surface-border/40">
-      <div className="max-w-7xl mx-auto space-y-12">
+      <div className="max-w-7xl mx-auto space-y-10">
         {/* Header */}
         <div className="flex flex-col items-start space-y-2">
           <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
@@ -69,9 +67,9 @@ export const AIEngineeringSection: React.FC = () => {
             </span>
           </div>
 
-          {/* Desktop/Tablet Horizontal Pipeline Stepper */}
+          {/* Stepper */}
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3">
-            {AI_PIPELINE_STAGES.map((stage, idx) => {
+            {AI_PIPELINE_STAGES.map((stage) => {
               const isSelected = stage.id === activeStageId;
               return (
                 <button
@@ -172,46 +170,6 @@ export const AIEngineeringSection: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Holistic Architecture Blueprint Card */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-surface-card/60 border border-surface-border space-y-4">
-          <div className="flex items-center space-x-2 text-xs font-mono uppercase tracking-wider text-slate-400">
-            <Cpu className="w-4 h-4 text-emerald-400" />
-            <span>Architectural Philosophy</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <h4 className="text-sm font-semibold text-white flex items-center space-x-2">
-                <Search className="w-4 h-4 text-cyan-400" />
-                <span>Two-Stage Precision Retrieval</span>
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Vector databases identify broad semantic matches, but neural Cross-Encoders re-rank passages by deep joint-attention to ensure that the LLM is fed solely high-signal context.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <h4 className="text-sm font-semibold text-white flex items-center space-x-2">
-                <Bot className="w-4 h-4 text-emerald-400" />
-                <span>Deterministic State Graphs</span>
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Utilizing LangGraph state machines ensures cyclic agent workflows have clear guardrails, fallback states, and human-in-the-loop validation checkpoints rather than uncontrolled loops.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-              <h4 className="text-sm font-semibold text-white flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-indigo-400" />
-                <span>Guaranteed Schema Enforcement</span>
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                By enforcing strict Pydantic v2 schemas on LLM outputs with automated retry handlers, every downstream database transaction is 100% type-safe and hallucination-free.
-              </p>
             </div>
           </div>
         </div>
