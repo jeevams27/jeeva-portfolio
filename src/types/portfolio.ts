@@ -7,8 +7,16 @@ export interface Project {
   description: string;
   featured?: boolean;
   status?: string;
+  targetAudience?: string;
+  problemTitle?: string;
   problem: string;
+  solutionTitle?: string;
   solution: string;
+  candidateWorkflow?: {
+    step: string;
+    label: string;
+    sub?: string;
+  }[];
   features: string[];
   technologies: string[];
   github?: string;

@@ -74,7 +74,7 @@ Analyst – AI / LLM Practice | Innodata (Noida, India · Remote) | 29 May 2026 
 - Multi-document management with metadata filtering in ChromaDB; deployed on Streamlit & Docker.
 
 2. AI Resume Screener
-- End-to-end resume screening pipeline using LangChain LCEL and Groq-hosted LLM with Pydantic output validation.
+- Resume-to-job fit analysis application using LangChain LCEL and Groq-hosted LLM with Pydantic output validation.
 
 3. Energy-Usage-Monitoring-and-Management-System
 - Machine learning pipeline with anomaly detection to monitor, predict, and flag unusual energy consumption patterns.
