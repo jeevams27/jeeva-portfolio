@@ -4,6 +4,7 @@ import {
   Building2,
   CheckCircle2,
   MapPin,
+  Calendar,
 } from 'lucide-react';
 
 export const Experience: React.FC = () => {
@@ -32,21 +33,30 @@ export const Experience: React.FC = () => {
               className="glass-card p-6 sm:p-8 rounded-2xl border border-surface-border hover:border-emerald-500/30 transition-all space-y-6"
             >
               {/* Header Details */}
-              <div className="space-y-1.5 pb-4 border-b border-surface-border/60">
-                <h3 className="text-2xl font-bold text-white tracking-tight">
-                  {exp.role}
-                </h3>
-                <div className="flex flex-wrap items-center gap-2 text-slate-300 font-medium text-sm sm:text-base">
-                  <div className="flex items-center space-x-1.5 text-white">
-                    <Building2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{exp.company}</span>
-                  </div>
-                  <span className="text-slate-600">•</span>
-                  <div className="flex items-center space-x-1.5 text-slate-400 text-xs sm:text-sm font-normal">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-400/80 shrink-0" />
-                    <span>{exp.location}</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-surface-border/60">
+                <div className="space-y-1.5">
+                  <h3 className="text-2xl font-bold text-white tracking-tight">
+                    {exp.role}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-2 text-slate-300 font-medium text-sm sm:text-base">
+                    <div className="flex items-center space-x-1.5 text-white">
+                      <Building2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span>{exp.company}</span>
+                    </div>
+                    <span className="text-slate-600">•</span>
+                    <div className="flex items-center space-x-1.5 text-slate-400 text-xs sm:text-sm font-normal">
+                      <MapPin className="w-3.5 h-3.5 text-emerald-400/80 shrink-0" />
+                      <span>{exp.location}</span>
+                    </div>
                   </div>
                 </div>
+
+                {exp.period && (
+                  <div className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300 self-start sm:self-center">
+                    <Calendar className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{exp.period}</span>
+                  </div>
+                )}
               </div>
 
               {/* Single Responsibility Card */}

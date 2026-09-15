@@ -386,7 +386,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     company: 'Innodata',
     department: '',
     location: 'Noida, India · Remote',
-    period: '',
+    period: '29 May 2026 – 17 August 2026',
     responsibilities: [
       'Annotated image, audio, and video data for multiple AI/LLM models by following detailed annotation guidelines and maintaining consistency and quality across datasets.',
     ],
