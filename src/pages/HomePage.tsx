@@ -40,7 +40,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
         {/* Big Headline */}
         <div className="space-y-3">
           <p className="text-xs font-mono uppercase tracking-widest text-emerald-400/90 font-medium">
-            {PERSONAL_INFO.role} ? Chennai, India
+            {PERSONAL_INFO.role} · Chennai, India
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
             Building intelligent systems with{' '}

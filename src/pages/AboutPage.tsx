@@ -93,7 +93,7 @@ export const AboutPage: React.FC = () => {
                   <MapPin className="w-3.5 h-3.5 text-slate-500" />
                   <span>Chennai, TN</span>
                 </span>
-                <span>?</span>
+                <span className="text-slate-600">•</span>
                 <span>{PERSONAL_INFO.education.period}</span>
               </div>
             </div>

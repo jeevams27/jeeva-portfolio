@@ -143,7 +143,7 @@ export const ContactPage: React.FC = () => {
           {/* Location */}
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center space-x-2.5 text-xs text-slate-300 font-mono">
             <MapPin className="w-4 h-4 text-slate-500 shrink-0" />
-            <span>{PERSONAL_INFO.location} ? Available for Remote & Onsite</span>
+            <span>{PERSONAL_INFO.location} · Available for Remote & Onsite</span>
           </div>
         </div>
 

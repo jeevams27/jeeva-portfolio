@@ -95,7 +95,7 @@ export const ProjectsPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2.5 py-0.5 rounded border border-emerald-500/20 font-semibold flex items-center space-x-1">
                   <Sparkles className="w-3 h-3" />
-                  <span>Flagship Project ? 01</span>
+                  <span>Flagship Project · 01</span>
                 </span>
                 <span className="text-[11px] font-mono text-slate-400 bg-white/[0.03] px-2.5 py-0.5 rounded border border-white/[0.06]">
                   {featuredProject.category}
@@ -230,7 +230,7 @@ export const ProjectsPage: React.FC = () => {
                       <span className="text-[11px] font-mono text-emerald-400 font-bold">
                         0{idx + (filterCategory === 'all' ? 2 : 1)}
                       </span>
-                      <span className="text-slate-600">?</span>
+                      <span className="text-slate-600">•</span>
                       <span className="text-[11px] font-mono text-slate-400">
                         {project.category}
                       </span>

@@ -25,17 +25,17 @@ export const Footer: React.FC = () => {
           {/* Quick Page Navigation */}
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-mono text-slate-400">
             <Link to="/" className="hover:text-emerald-300 transition-colors">Home</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/about" className="hover:text-emerald-300 transition-colors">About</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/projects" className="hover:text-emerald-300 transition-colors">Projects</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/skills" className="hover:text-emerald-300 transition-colors">Skills</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/experience" className="hover:text-emerald-300 transition-colors">Experience</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/exploring" className="hover:text-emerald-300 transition-colors">Exploring</Link>
-            <span>?</span>
+            <span className="text-slate-600">•</span>
             <Link to="/contact" className="hover:text-emerald-300 transition-colors">Contact</Link>
           </div>
 
@@ -77,7 +77,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-4 border-t border-white/[0.04] text-center text-slate-500 font-mono text-[11px]">
-          ? 2026 {PERSONAL_INFO.name} ? Designed & Built for High-Performance AI Engineering
+          © 2026 {PERSONAL_INFO.name} · Designed & Built for High-Performance AI Engineering
         </div>
       </div>
     </footer>

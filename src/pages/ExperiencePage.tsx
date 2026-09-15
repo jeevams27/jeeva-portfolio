@@ -52,7 +52,7 @@ export const ExperiencePage: React.FC<ExperiencePageProps> = ({ onResumeClick })
                       <Building2 className="w-3.5 h-3.5 text-emerald-400" />
                       <span>{exp.company}</span>
                     </span>
-                    <span className="text-slate-600">?</span>
+                    <span className="text-slate-600">•</span>
                     <span className="flex items-center space-x-1.5 text-slate-400">
                       <MapPin className="w-3.5 h-3.5 text-slate-500" />
                       <span>{exp.location}</span>
