@@ -1,5 +1,4 @@
 import React from 'react';
-import { AIEngineeringSection } from '../components/AIEngineeringSection';
 
 export const SkillsPage: React.FC = () => {
   const categoriesData = [
@@ -82,7 +81,7 @@ export const SkillsPage: React.FC = () => {
       {/* Ambient Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] ambient-glow-skills pointer-events-none -z-10" />
 
-      <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-24 sm:space-y-32">
+      <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-16 sm:space-y-24">
         {/* Page Header */}
         <div className="space-y-4 max-w-4xl">
           <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-purple-400 uppercase tracking-widest font-bold">
@@ -123,11 +122,6 @@ export const SkillsPage: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Production AI Engineering Pipeline Flow */}
-        <div className="pt-12 border-t border-white/[0.08]">
-          <AIEngineeringSection />
         </div>
       </div>
     </div>
