@@ -431,4 +431,10 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
     description: 'Architecting low-latency, scalable AI microservices with tracing, latency benchmarking, and cache optimization.',
     status: 'Continuous Study',
   },
+  {
+    title: 'Automated Quotation Maker',
+    tag: 'AI Application',
+    description: 'Building an AI-powered quotation generation system that extracts customer requirements, selects relevant products, applies pricing and tax rules, and generates structured quotations.',
+    status: 'Currently Building',
+  },
 ];
