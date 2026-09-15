@@ -234,7 +234,7 @@ export const PROJECTS: Project[] = [
 
   {
     id: 'energy-management-analysis',
-    title: 'Energy Management / Electricity Analysis',
+    title: 'Energy-Usage-Monitoring-and-Management-System',
     category: 'Machine Learning / Data Analytics',
     featured: false,
     tagline: 'End-to-end machine learning analytics pipeline for energy consumption patterns and load forecasting.',
