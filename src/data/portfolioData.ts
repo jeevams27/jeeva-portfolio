@@ -236,6 +236,8 @@ export const PROJECTS: Project[] = [
     title: 'AI Quotation Drafting Copilot',
     category: 'AI Application / Agentic Workflow',
     featured: false,
+    isUpcoming: true,
+    status: 'Upcoming / In Development',
     tagline: 'Agentic workflow converting unstructured business requirements into validated commercial quotations.',
     description: 'An AI-assisted quotation generation system that extracts customer requirements, looks up pricing and tax policies, enforces Pydantic schema validation, and persists quotations in PostgreSQL.',
     problem: 'Sales teams frequently draft quotes from messy email threads or client meeting notes. Manual data entry leads to missing items, incorrect product skus, miscalculated tax rules, and disjointed database records.',

@@ -5,6 +5,8 @@ export interface Project {
   tagline: string;
   description: string;
   featured?: boolean;
+  isUpcoming?: boolean;
+  status?: string;
   problem: string;
   solution: string;
   features: string[];

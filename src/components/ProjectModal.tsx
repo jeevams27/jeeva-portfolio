@@ -9,8 +9,8 @@ import {
   Sparkles,
   Layers,
   ArrowRight,
-  Database,
-  Cpu,
+  Clock,
+  Construction,
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -54,8 +54,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Header Details */}
         <div className="space-y-3 pr-10">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-            <span>{project.category}</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+              <span>{project.category}</span>
+            </span>
+
+            {project.isUpcoming && (
+              <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/50 text-cyan-300 text-xs font-mono font-semibold">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>Upcoming Project • In Active Development</span>
+              </span>
+            )}
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -80,7 +89,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </a>
             )}
 
-            {project.github && (
+            {project.github && !project.isUpcoming && (
               <a
                 href={project.github}
                 target="_blank"
@@ -90,6 +99,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <Github className="w-4 h-4 text-emerald-400" />
                 <span>View GitHub Repository</span>
               </a>
+            )}
+
+            {project.isUpcoming && (
+              <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-mono">
+                <Clock className="w-4 h-4 text-cyan-400" />
+                <span>Architecture & Agent State Machine in Development</span>
+              </div>
             )}
           </div>
         </div>
