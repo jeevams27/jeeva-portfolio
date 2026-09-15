@@ -384,23 +384,13 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     role: 'Analyst – AI / LLM Practice',
     company: 'Innodata',
-    department: 'AI Data Solutions & LLM Services',
-    location: 'Tamil Nadu, India',
-    period: 'Professional Experience',
+    department: '',
+    location: 'Noida, India · Remote',
+    period: '',
     responsibilities: [
-      'Curated and prepared high-quality training and fine-tuning datasets for advanced Large Language Models and AI systems.',
-      'Conducted precise multimodal annotation across image, audio, and video modalities adhering to strict taxonomy guidelines.',
-      'Contributed to the development and standardization of comprehensive annotation guidelines ensuring cross-team consistency.',
-      'Executed model evaluation workflows, benchmark reviews, and rigorous Quality Assurance (QA) validation loops to uphold dataset integrity.',
-      'Collaborated with AI engineering teams to optimize dataset pipeline workflows and reduce labeling discrepancies.',
+      'Annotated image, audio, and video data for multiple AI/LLM models by following detailed annotation guidelines and maintaining consistency and quality across datasets.',
     ],
-    tags: [
-      'AI/LLM Data Prep',
-      'Multimodal Annotation',
-      'Dataset Quality QA',
-      'Annotation Guidelines',
-      'Model Evaluation Workflows',
-    ],
+    tags: [],
   },
 ];
 
