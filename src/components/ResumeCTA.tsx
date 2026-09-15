@@ -5,8 +5,8 @@ import {
   Github,
   Linkedin,
   Mail,
-  ArrowRight,
   Sparkles,
+  FileText,
 } from 'lucide-react';
 
 interface ResumeCTAProps {
@@ -41,17 +41,26 @@ export const ResumeCTA: React.FC<ResumeCTAProps> = ({ onResumeClick, onContactCl
 
           {/* Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-            <button
-              onClick={onResumeClick}
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Jeeva_MS_Resume.pdf"
               className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-emerald-500/25 active:scale-[0.99]"
             >
               <Download className="w-4 h-4" />
-              <span>Download Resume</span>
+              <span>Download Resume (PDF)</span>
+            </a>
+
+            <button
+              onClick={onResumeClick}
+              className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-surface-card hover:bg-surface-card-hover text-white border border-surface-border hover:border-slate-600 font-semibold text-sm transition-all"
+            >
+              <FileText className="w-4 h-4 text-cyan-400" />
+              <span>View Full CV</span>
             </button>
 
             <button
               onClick={onContactClick}
-              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl bg-surface-card hover:bg-surface-card-hover text-white border border-surface-border hover:border-slate-600 font-semibold text-sm transition-all"
+              className="inline-flex items-center space-x-2 px-5 py-3.5 rounded-xl bg-surface-card hover:bg-surface-card-hover text-white border border-surface-border hover:border-slate-600 font-semibold text-sm transition-all"
             >
               <Mail className="w-4 h-4 text-emerald-400" />
               <span>Contact Me</span>

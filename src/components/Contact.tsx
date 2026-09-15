@@ -9,7 +9,7 @@ import {
   Check,
   Copy,
   MessageSquare,
-  Sparkles,
+  Phone,
   ArrowUpRight,
 } from 'lucide-react';
 
@@ -23,26 +23,32 @@ export const Contact: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Build standard mailto string
     const subject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name} via Portfolio`);
     const body = encodeURIComponent(
       `Hello Jeeva,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n`
     );
-    window.location.href = `mailto:${PERSONAL_INFO.links.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
 
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.links.email);
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   return (
@@ -77,17 +83,43 @@ export const Contact: React.FC = () => {
                   className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:text-white transition-colors"
                 >
                   {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
+                  <span>{copiedEmail ? 'Copied' : 'Copy Email'}</span>
                 </button>
               </div>
 
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-slate-400">Direct Email</span>
                 <a
-                  href={`mailto:${PERSONAL_INFO.links.email}`}
+                  href={`mailto:${PERSONAL_INFO.email}`}
                   className="block text-base sm:text-lg font-semibold text-white hover:text-emerald-400 transition-colors mt-0.5 break-all"
                 >
-                  {PERSONAL_INFO.links.email}
+                  {PERSONAL_INFO.email}
+                </a>
+              </div>
+            </div>
+
+            {/* Phone Card */}
+            <div className="glass-card p-6 rounded-2xl border border-surface-border space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <button
+                  onClick={handleCopyPhone}
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 hover:text-white transition-colors"
+                >
+                  {copiedPhone ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedPhone ? 'Copied' : 'Copy Phone'}</span>
+                </button>
+              </div>
+
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-400">Phone Contact</span>
+                <a
+                  href={`tel:${PERSONAL_INFO.phone}`}
+                  className="block text-base sm:text-lg font-semibold text-white hover:text-cyan-400 transition-colors mt-0.5 font-mono"
+                >
+                  +91 {PERSONAL_INFO.phone}
                 </a>
               </div>
             </div>
@@ -137,7 +169,7 @@ export const Contact: React.FC = () => {
                 <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-xs font-mono text-slate-500">Based in</span>
+                <span className="text-xs font-mono text-slate-500">Location</span>
                 <p className="text-slate-200 font-medium">{PERSONAL_INFO.location}</p>
               </div>
             </div>

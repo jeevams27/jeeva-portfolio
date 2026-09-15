@@ -1,12 +1,10 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'Multimodal RAG / Generative AI' | 'Generative AI / NLP' | 'AI Application / Agentic Workflow' | 'Machine Learning / Data Analytics';
+  category: 'Multimodal RAG / Generative AI' | 'Generative AI / NLP' | 'Machine Learning / Data Analytics';
   tagline: string;
   description: string;
   featured?: boolean;
-  isUpcoming?: boolean;
-  status?: string;
   problem: string;
   solution: string;
   features: string[];
@@ -39,6 +37,11 @@ export interface ExperienceItem {
   period: string;
   responsibilities: string[];
   tags: string[];
+}
+
+export interface Certification {
+  title: string;
+  issuer: string;
 }
 
 export interface PipelineStage {

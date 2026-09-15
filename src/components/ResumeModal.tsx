@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PERSONAL_INFO, SKILL_CATEGORIES, PROJECTS, EXPERIENCE_DATA } from '../data/portfolioData';
+import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
 import {
   X,
   Download,
@@ -8,9 +8,10 @@ import {
   Copy,
   Check,
   GraduationCap,
-  Briefcase,
-  Layers,
   Sparkles,
+  Award,
+  Phone,
+  MapPin,
   ExternalLink,
 } from 'lucide-react';
 
@@ -41,56 +42,58 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   const generateMarkdownResume = () => {
-    return `# JEEVA M S
-**AI & GenAI Engineer** | Tamil Nadu, India
-Email: ${PERSONAL_INFO.links.email} | GitHub: ${PERSONAL_INFO.links.github} | LinkedIn: ${PERSONAL_INFO.links.linkedin}
+    return `# JEEVA MS
+Phone: ${PERSONAL_INFO.phone} | Email: ${PERSONAL_INFO.email} | Location: ${PERSONAL_INFO.location}
+LinkedIn: ${PERSONAL_INFO.links.linkedin} | GitHub: ${PERSONAL_INFO.links.github}
+Artificial Intelligence & Data Science — Python — Machine Learning — Generative AI
 
 ---
 
 ## PROFESSIONAL SUMMARY
-AI & GenAI Engineer building practical applications with Large Language Models (LLMs), Multimodal Retrieval-Augmented Generation (RAG), AI agents, machine learning, and modern AI frameworks. B.Tech graduate in Artificial Intelligence & Data Science (May 2025).
-
----
-
-## EDUCATION
-- **B.Tech in Artificial Intelligence & Data Science** (Graduation: May 2025)
+Artificial Intelligence and Data Science graduate with hands-on experience in Python, Machine Learning, Generative AI, LLMs, and RAG. Experienced in developing AI applications using LangChain, LangGraph, ChromaDB and Streamlit, with exposure to prompt engineering, document processing, retrieval, and model evaluation. Familiar with building and deploying end-to-end AI/ML applications and working with emerging AI technologies.
 
 ---
 
 ## TECHNICAL SKILLS
-- **Generative AI & LLMs**: LLMs, Generative AI, Prompt Engineering, RAG, Embeddings, Vector Databases, AI Agents, LangChain, LangGraph
-- **NLP / AI**: NLP, Transformers, Sentence Transformers, Cross-Encoders, Semantic Search
-- **Machine Learning**: Scikit-learn, Decision Trees, Random Forest, AdaBoost, Ensemble Learning, K-Means, Hierarchical Clustering, EDA
-- **Programming & DB**: Python, SQL, MySQL, PostgreSQL
-- **Data & Tools**: Pandas, NumPy, Matplotlib, Power BI, Tableau, Streamlit, FastAPI, Docker, Git, GitHub, ChromaDB, RAGAS, Pydantic
+- **Programming**: Python, SQL.
+- **Data Science**: Pandas, NumPy, Scikit-learn, EDA, Data Preprocessing, Feature Engineering.
+- **Machine Learning**: Linear Regression, Logistic Regression, Decision Tree, Random Forest, Model Evaluation.
+- **Generative AI**: LLMs, Prompt Engineering, RAG, Multimodal RAG, Agentic AI.
+- **Frameworks**: LangChain, LCEL, LangGraph, ChromaDB, Groq API.
+- **Tools**: RAGAS, LLM-as-Judge, Pydantic, Streamlit, Docker, FastAPI, Git, GitHub.
 
 ---
 
-## EXPERIENCE
-### Analyst – AI / LLM Practice | Innodata
-- Curated and prepared high-quality training and fine-tuning datasets for LLM and AI model evaluation.
-- Conducted multimodal data annotation across image, audio, and video modalities following strict taxonomies.
-- Developed and standardized comprehensive annotation guidelines to ensure dataset consistency.
-- Executed AI model evaluation workflows and Quality Assurance (QA) validation loops.
+## PROJECTS
 
----
-
-## FEATURED PROJECTS
-### 1. Equity Research Report Intelligence (Multimodal RAG / GenAI)
-- Multi-document multimodal RAG assistant for analyzing complex equity research reports.
-- Features: PyMuPDF, pdfplumber, Gemini Vision (tables & charts), Sentence Transformers, ChromaDB, Cross-Encoder reranking, Groq (Llama 3.3 70B), Streamlit.
+### 1. Equity Research Report Intelligence System - Multimodal RAG
+- Built a production-style multimodal RAG system that ingests equity research PDFs and answers natural language questions across text, tables, and charts with exact source citations, using a 5-layer extraction and retrieval architecture.
+- Solved cross-document retrieval bias with a two-stage pipeline - bi-encoder retrieves 50 candidates, cross-encoder rescores by reading query and chunk together, keeping the top 5 for precision retrieval.
+- Built persistent, filterable multi-document management in ChromaDB with metadata filtering, and deployed the system on Streamlit Community Cloud with Docker containerization.
 - Live Demo: https://equity-research-report-intelligence-27.streamlit.app/
 - GitHub: https://github.com/jeevams27/Equity-Research-Report-Intelligence
 
-### 2. AI Resume Screener (Generative AI / NLP)
-- AI-powered resume screening analyzing resumes against job descriptions with ATS scoring.
-- Tech: Python, LangChain, Groq, Streamlit, NLP, LLMs.
+### 2. AI Resume Screener
+- Built an end-to-end resume screening pipeline using LangChain LCEL and a Groq-hosted LLM.
+- Extracted and parsed candidate data from PDF resumes using pdfplumber; validated structured output with Pydantic.
+- Generated real-time match scores and role-fit feedback via an interactive Streamlit interface.
 - GitHub: https://github.com/jeevams27/Langchain-Resume-Screener
 
-### 3. Energy-Usage-Monitoring-and-Management-System (ML / Data Analytics)
-- Machine learning pipeline for temporal energy consumption analysis and anomaly detection.
-- Tech: Python, Pandas, NumPy, Matplotlib, Scikit-learn.
+### 3. AI-Powered Energy Management System
+- Built an ML pipeline with anomaly detection to monitor, predict, and flag unusual energy consumption patterns from time-series data via an interactive Streamlit dashboard.
 - GitHub: https://github.com/jeevams27/Energy-Usage-Monitoring-and-Management-System
+
+---
+
+## EDUCATION
+- **B.Tech — Artificial Intelligence & Data Science** (2021 – 2025)
+  Saveetha Engineering College, Chennai | CGPA: 7.6
+
+---
+
+## CERTIFICATIONS
+- IBM Data Science Professional Certificate — Coursera / IBM
+- Data Analyst Certification — ExcelR
 `;
   };
 
@@ -98,19 +101,6 @@ AI & GenAI Engineer building practical applications with Large Language Models (
     navigator.clipboard.writeText(generateMarkdownResume());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleDownloadFile = () => {
-    const text = generateMarkdownResume();
-    const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Jeeva_M_S_AI_GenAI_Engineer_Resume.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -129,99 +119,119 @@ AI & GenAI Engineer building practical applications with Large Language Models (
         </button>
 
         {/* Header */}
-        <div className="space-y-2 border-b border-surface-border pb-5 pr-10">
+        <div className="space-y-3 border-b border-surface-border pb-5 pr-10">
           <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
             <FileText className="w-4 h-4" />
-            <span>Curriculum Vitae / Resume Preview</span>
+            <span>Official Curriculum Vitae / Resume</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            {PERSONAL_INFO.name}
-          </h3>
-          <p className="text-slate-300 text-sm font-mono">
-            {PERSONAL_INFO.role} • {PERSONAL_INFO.location}
-          </p>
+
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              {PERSONAL_INFO.name}
+            </h3>
+            <p className="text-slate-300 text-xs sm:text-sm font-mono mt-0.5">
+              {PERSONAL_INFO.role} • {PERSONAL_INFO.location} • {PERSONAL_INFO.phone}
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-2.5 pt-2">
-            <button
-              onClick={handleDownloadFile}
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition-all"
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Jeeva_MS_Resume.pdf"
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition-all shadow-md shadow-emerald-500/20"
             >
               <Download className="w-4 h-4" />
-              <span>Download Resume (.md)</span>
-            </button>
+              <span>Download Official PDF Resume</span>
+            </a>
 
             <button
               onClick={handleCopyMarkdown}
               className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm border border-slate-700 transition-all font-mono"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'Copied to Clipboard' : 'Copy Text'}</span>
+              <span>{copied ? 'Copied to Clipboard' : 'Copy Plaintext'}</span>
             </button>
 
             <a
-              href={`mailto:${PERSONAL_INFO.links.email}?subject=Requesting%20PDF%20Resume%20-%20Jeeva%20M%20S`}
+              href={`mailto:${PERSONAL_INFO.email}?subject=Inquiry%20regarding%20AI%20Engineering%20Role%20-%20Jeeva%20MS`}
               className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-surface-card hover:bg-slate-800 text-slate-300 text-xs sm:text-sm border border-surface-border transition-all"
             >
               <Mail className="w-4 h-4 text-cyan-400" />
-              <span>Request Official PDF</span>
+              <span>Email Directly</span>
             </a>
           </div>
         </div>
 
         {/* Structured Resume Content */}
         <div className="space-y-6 text-sm text-slate-300">
+          {/* Summary */}
+          <div className="space-y-1.5 p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+              Professional Summary
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {PERSONAL_INFO.bio}
+            </p>
+          </div>
+
           {/* Education */}
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center space-x-2">
               <GraduationCap className="w-4 h-4 text-emerald-400" />
               <span>Education</span>
             </h4>
-            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <p className="font-semibold text-white">{PERSONAL_INFO.education.degree}</p>
-                <p className="text-xs text-slate-400">{PERSONAL_INFO.education.focus}</p>
+                <p className="text-xs text-slate-400">{PERSONAL_INFO.education.institution}</p>
               </div>
-              <span className="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded">
-                Graduation: May 2025
-              </span>
+              <div className="flex items-center space-x-2">
+                <span className="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-500/20">
+                  CGPA: {PERSONAL_INFO.education.cgpa}
+                </span>
+                <span className="text-xs font-mono text-slate-400">
+                  {PERSONAL_INFO.education.period}
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Experience */}
+          {/* Certifications */}
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center space-x-2">
-              <Briefcase className="w-4 h-4 text-cyan-400" />
-              <span>Experience</span>
+              <Award className="w-4 h-4 text-cyan-400" />
+              <span>Certifications</span>
             </h4>
-            {EXPERIENCE_DATA.map((exp, idx) => (
-              <div key={idx} className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between">
-                  <p className="font-semibold text-white">{exp.role} — {exp.company}</p>
-                  <span className="text-xs font-mono text-slate-400">{exp.location}</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {PERSONAL_INFO.certifications.map((cert, cIdx) => (
+                <div key={cIdx} className="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-xs space-y-0.5">
+                  <p className="font-semibold text-white">{cert.title}</p>
+                  <p className="text-[11px] font-mono text-emerald-400">{cert.issuer}</p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-xs text-slate-300 pl-1">
-                  {exp.responsibilities.slice(0, 3).map((r, rIdx) => (
-                    <li key={rIdx}>{r}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Key Projects */}
           <div className="space-y-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center space-x-2">
               <Sparkles className="w-4 h-4 text-indigo-400" />
-              <span>Key Projects</span>
+              <span>Featured Projects</span>
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {PROJECTS.map((proj) => (
-                <div key={proj.id} className="p-3 rounded-lg bg-slate-900/50 border border-slate-800 text-xs space-y-1">
+                <div key={proj.id} className="p-3.5 rounded-xl bg-slate-900/70 border border-slate-800 text-xs space-y-2">
                   <div className="flex items-center justify-between font-semibold text-slate-200">
-                    <span>{proj.title}</span>
-                    <span className="text-[10px] font-mono text-emerald-400">{proj.category}</span>
+                    <span className="text-sm text-white">{proj.title}</span>
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded">
+                      {proj.category}
+                    </span>
                   </div>
-                  <p className="text-slate-400 text-[11px]">{proj.tagline}</p>
+                  <ul className="space-y-1 list-disc list-inside text-slate-300 text-xs pl-1">
+                    {proj.features.slice(0, 3).map((f, fIdx) => (
+                      <li key={fIdx}>{f}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
