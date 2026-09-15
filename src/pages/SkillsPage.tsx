@@ -47,7 +47,7 @@ export const SkillsPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Skills List with links if slug is present */}
+            {/* Skills List */}
             <div className="md:col-span-8 flex flex-wrap gap-2 items-center">
               {category.skills.map((skill, sIdx) => {
                 if (skill.slug) {
@@ -55,11 +55,9 @@ export const SkillsPage: React.FC = () => {
                     <Link
                       key={sIdx}
                       to={`/skills/${skill.slug}`}
-                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-mono bg-emerald-950/30 text-emerald-300 border border-emerald-500/25 hover:border-emerald-400 hover:bg-emerald-900/40 transition-all group"
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08] hover:border-emerald-500/40 hover:text-emerald-300 hover:bg-white/[0.06] transition-all"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                       <span>{skill.name}</span>
-                      <ArrowRight className="w-3 h-3 text-emerald-400 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                     </Link>
                   );
                 }
@@ -67,15 +65,8 @@ export const SkillsPage: React.FC = () => {
                 return (
                   <span
                     key={sIdx}
-                    className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-mono ${
-                      skill.highlight
-                        ? 'bg-white/[0.05] text-slate-200 border border-white/[0.1]'
-                        : 'bg-white/[0.02] text-slate-400 border border-white/[0.04]'
-                    }`}
+                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08]"
                   >
-                    {skill.highlight && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                    )}
                     <span>{skill.name}</span>
                   </span>
                 );

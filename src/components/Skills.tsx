@@ -40,15 +40,8 @@ export const Skills: React.FC = () => {
                 {category.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className={`inline-flex items-center space-x-1.5 px-3 py-1 rounded-md text-xs font-mono transition-colors ${
-                      skill.highlight
-                        ? 'bg-emerald-950/30 text-emerald-300 border border-emerald-500/25'
-                        : 'bg-white/[0.03] text-slate-300 border border-white/[0.06]'
-                    }`}
+                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/[0.03] text-slate-300 border border-white/[0.08]"
                   >
-                    {skill.highlight && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    )}
                     <span>{skill.name}</span>
                   </span>
                 ))}
