@@ -14,7 +14,7 @@ export const PERSONAL_INFO = {
   role: 'AI & GenAI Engineer',
   tagline: 'Building Intelligent Systems with LLMs, RAG & AI',
   phone: '9360754240',
-  email: 'jevams2711@gmail.com',
+  email: 'jeevams2711@gmail.com',
   location: 'Chennai, TN',
   status: 'Open to AI / GenAI Engineering Opportunities',
   resumeUrl: '/Jeeva_MS_Resume.pdf',
@@ -39,7 +39,7 @@ export const PERSONAL_INFO = {
   links: {
     github: 'https://github.com/jeevams27',
     linkedin: 'https://www.linkedin.com/in/jeeva-ms-0a22812ba/',
-    email: 'jevams2711@gmail.com',
+    email: 'jeevams2711@gmail.com',
   },
 };
 
