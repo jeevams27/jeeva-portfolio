@@ -21,59 +21,60 @@ export const AIEngineeringSection: React.FC = () => {
   const getStageIcon = (id: number) => {
     switch (id) {
       case 1:
-        return <Terminal className="w-3.5 h-3.5" />;
+        return <Terminal className="w-4 h-4" />;
       case 2:
-        return <Layers className="w-3.5 h-3.5" />;
+        return <Layers className="w-4 h-4" />;
       case 3:
-        return <Bot className="w-3.5 h-3.5" />;
+        return <Bot className="w-4 h-4" />;
       case 4:
-        return <Search className="w-3.5 h-3.5" />;
+        return <Search className="w-4 h-4" />;
       case 5:
-        return <Cpu className="w-3.5 h-3.5" />;
+        return <Cpu className="w-4 h-4" />;
       case 6:
-        return <ShieldCheck className="w-3.5 h-3.5" />;
+        return <ShieldCheck className="w-4 h-4" />;
       case 7:
-        return <Zap className="w-3.5 h-3.5" />;
+        return <Zap className="w-4 h-4" />;
       default:
-        return <Sparkles className="w-3.5 h-3.5" />;
+        return <Sparkles className="w-4 h-4" />;
     }
   };
 
   return (
-    <section id="ai-systems" className="py-24 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.06]">
+    <section id="ai-systems" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Header */}
-        <div className="space-y-2">
-          <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
-            <span>03 / Systems Architecture</span>
+        <div className="space-y-3">
+          <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-emerald-400 uppercase tracking-widest font-bold">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Systems Architecture</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
             How I Build Production AI Systems
           </h2>
-          <p className="text-slate-400 text-sm max-w-xl">
+          <p className="text-slate-300 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
             A systematic engineering methodology for building reliable, low-latency, and hallucination-resistant LLM & Agent applications.
           </p>
         </div>
 
         {/* Interactive Pipeline Container */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {/* Stepper Pipeline Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
             {AI_PIPELINE_STAGES.map((stage) => {
               const isSelected = stage.id === activeStageId;
               return (
                 <button
                   key={stage.id}
                   onClick={() => setActiveStageId(stage.id)}
-                  className={`p-3 rounded-xl flex flex-col items-start text-left transition-all border ${
+                  className={`p-4 rounded-2xl flex flex-col items-start text-left transition-all border ${
                     isSelected
-                      ? 'bg-white/[0.06] border-emerald-500/50 text-white'
-                      : 'bg-white/[0.02] border-white/[0.06] hover:border-white/[0.12] text-slate-400'
+                      ? 'bg-white/[0.08] border-emerald-500/60 text-white shadow-[0_0_20px_rgba(16,185,129,0.15)]'
+                      : 'bg-white/[0.02] border-white/[0.06] hover:border-white/[0.14] text-slate-400 hover:text-white'
                   }`}
                 >
-                  <div className="flex items-center justify-between w-full mb-1">
+                  <div className="flex items-center justify-between w-full mb-2">
                     <span
-                      className={`text-[10px] font-mono font-bold ${
+                      className={`text-xs font-mono font-bold ${
                         isSelected ? 'text-emerald-400' : 'text-slate-500'
                       }`}
                     >
@@ -85,14 +86,14 @@ export const AIEngineeringSection: React.FC = () => {
                   </div>
 
                   <span
-                    className={`text-xs font-semibold tracking-tight ${
+                    className={`text-xs sm:text-sm font-bold tracking-tight ${
                       isSelected ? 'text-white' : 'text-slate-300'
                     }`}
                   >
                     {stage.name}
                   </span>
 
-                  <span className="text-[10px] text-slate-400 line-clamp-1 mt-0.5">
+                  <span className="text-[11px] text-slate-400 line-clamp-1 mt-1 font-mono">
                     {stage.technologies[0]}
                   </span>
                 </button>
@@ -101,36 +102,36 @@ export const AIEngineeringSection: React.FC = () => {
           </div>
 
           {/* Active Stage Detailed Breakdown Panel */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#0c1017] border border-white/[0.08] grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-6 space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#0c1017] border border-white/[0.08] grid grid-cols-1 lg:grid-cols-12 gap-10 items-start shadow-sm">
+            <div className="lg:col-span-6 space-y-5">
+              <div className="flex items-center space-x-3.5">
+                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
                   {getStageIcon(activeStage.id)}
                 </div>
                 <div>
-                  <span className="text-[11px] font-mono text-emerald-400 uppercase">
+                  <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
                     Stage 0{activeStage.id} · {activeStage.name}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     {activeStage.role}
                   </h3>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
                 {activeStage.description}
               </p>
 
               {/* Technologies */}
-              <div className="space-y-2 pt-2">
-                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+              <div className="space-y-2.5 pt-2">
+                <span className="text-xs sm:text-sm font-mono text-slate-400 uppercase tracking-wider font-semibold">
                   Technology Stack & Tools
                 </span>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {activeStage.technologies.map((t, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-0.5 rounded bg-white/[0.03] text-xs font-mono text-slate-300 border border-white/[0.06]"
+                      className="px-3 py-1 rounded-lg bg-white/[0.04] text-xs sm:text-sm font-mono text-slate-200 border border-white/[0.08]"
                     >
                       {t}
                     </span>
@@ -140,18 +141,18 @@ export const AIEngineeringSection: React.FC = () => {
             </div>
 
             {/* Production Engineering Practices */}
-            <div className="lg:col-span-6 p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-2 border-b border-white/[0.04]">
-                <span className="text-slate-200 font-semibold uppercase tracking-wider">
+            <div className="lg:col-span-6 p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-4">
+              <div className="flex items-center justify-between text-xs sm:text-sm font-mono text-slate-400 pb-3 border-b border-white/[0.06]">
+                <span className="text-slate-200 font-bold uppercase tracking-wider">
                   Engineering Standards
                 </span>
-                <span className="text-emerald-400">Production Practices</span>
+                <span className="text-emerald-400 font-semibold">Production Practices</span>
               </div>
 
-              <div className="space-y-2.5 pt-1">
+              <div className="space-y-3 pt-1">
                 {activeStage.keyPractices.map((practice, pIdx) => (
-                  <div key={pIdx} className="flex items-start space-x-2.5 text-xs text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={pIdx} className="flex items-start space-x-3 text-sm sm:text-base text-slate-300">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{practice}</span>
                   </div>
                 ))}
