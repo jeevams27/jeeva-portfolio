@@ -408,30 +408,6 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
     status: 'In Progress',
   },
   {
-    title: 'Advanced RAG Techniques',
-    tag: 'Retrieval Systems',
-    description: 'Implementing parent-document retrieval, contextual compression, self-querying vector stores, and RAPTOR indexing.',
-    status: 'Active Exploration',
-  },
-  {
-    title: 'Multimodal AI Integration',
-    tag: 'Vision & Audio',
-    description: 'Fusing vision-language models with document intelligence pipelines for holistic unstructured data processing.',
-    status: 'Hands-on Prototyping',
-  },
-  {
-    title: 'LLM Evaluation & RAGAS',
-    tag: 'Model Quality',
-    description: 'Automated evaluation pipelines measuring faithfulness, answer relevancy, context precision, and hallucination rates.',
-    status: 'Active Research',
-  },
-  {
-    title: 'Production AI Systems & Observability',
-    tag: 'System Reliability',
-    description: 'Architecting low-latency, scalable AI microservices with tracing, latency benchmarking, and cache optimization.',
-    status: 'Continuous Study',
-  },
-  {
     title: 'Automated Quotation Maker',
     tag: 'AI Application',
     description: 'Building an AI-powered quotation generation system that extracts customer requirements, selects relevant products, applies pricing and tax rules, and generates structured quotations.',
