@@ -3,11 +3,11 @@ import { BackgroundCanvas } from './components/BackgroundCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { AIEngineeringSection } from './components/AIEngineeringSection';
 import { Experience } from './components/Experience';
 import { CurrentlyExploring } from './components/CurrentlyExploring';
+import { Skills } from './components/Skills';
 import { ResumeCTA } from './components/ResumeCTA';
 import { ResumeModal } from './components/ResumeModal';
 import { Contact } from './components/Contact';
@@ -27,7 +27,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-200 relative selection:bg-emerald-500/20 selection:text-emerald-300">
-      {/* Interactive AI Mesh Canvas Background */}
+      {/* Interactive Subtle Background Canvas */}
       <BackgroundCanvas />
 
       {/* Main Foreground Container */}
@@ -39,11 +39,11 @@ export const App: React.FC = () => {
         <main className="flex-grow">
           <Hero onResumeClick={handleOpenResume} />
           <About />
-          <Skills />
           <Projects />
           <AIEngineeringSection />
           <Experience />
           <CurrentlyExploring />
+          <Skills />
           <ResumeCTA
             onResumeClick={handleOpenResume}
             onContactClick={handleScrollToContact}
