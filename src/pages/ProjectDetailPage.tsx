@@ -39,7 +39,7 @@ export const ProjectDetailPage: React.FC = () => {
       {/* Ambient Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] ambient-glow-projects pointer-events-none -z-10" />
 
-      <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-20">
+      <div className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-20">
         {/* Navigation Breadcrumb */}
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
           <Link

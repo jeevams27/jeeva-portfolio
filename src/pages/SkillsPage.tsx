@@ -94,7 +94,7 @@ export const SkillsPage: React.FC = () => {
       {/* Ambient Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] ambient-glow-skills pointer-events-none -z-10" />
 
-      <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-20">
+      <div className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-20">
         {/* Page Header */}
         <div className="space-y-4 max-w-3xl">
           <div className="flex items-center space-x-2 text-xs font-mono text-purple-400 uppercase tracking-widest font-semibold">

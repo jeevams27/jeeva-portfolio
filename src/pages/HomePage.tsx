@@ -29,9 +29,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
       {/* Ambient Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] ambient-glow-home pointer-events-none -z-10" />
 
-      <div className="space-y-24 py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div className="space-y-20 py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         {/* Hero Section */}
-        <section className="pt-8 sm:pt-16 space-y-8 max-w-4xl">
+        <section className="pt-2 sm:pt-6 space-y-7 max-w-4xl">
           {/* Status Pill */}
           <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-xs font-mono shadow-[0_0_15px_rgba(16,185,129,0.15)]">
             <span className="relative flex h-2 w-2">
@@ -43,11 +43,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
 
           {/* Big Headline */}
           <div className="space-y-3">
-            <p className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold flex items-center space-x-2">
+            <p className="text-xs sm:text-sm font-mono uppercase tracking-widest text-emerald-400 font-semibold flex items-center space-x-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
               <span>{PERSONAL_INFO.role} · Chennai, India</span>
             </p>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.06]">
               Building{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
                 Intelligent Systems
@@ -60,7 +60,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
           </div>
 
           {/* Bio Text */}
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl leading-relaxed font-normal">
             {PERSONAL_INFO.bio}
           </p>
 
