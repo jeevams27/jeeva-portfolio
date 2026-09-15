@@ -1,0 +1,436 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { PERSONAL_INFO, PROJECTS, CURRENTLY_EXPLORING } from '../data/portfolioData';
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  FileText,
+  ExternalLink,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  Compass,
+} from 'lucide-react';
+
+interface HomePageProps {
+  onResumeClick: () => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
+  const featuredProject = PROJECTS.find((p) => p.featured) || PROJECTS[0];
+
+  return (
+    <div className="space-y-24 py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      {/* Hero Section */}
+      <section className="pt-8 sm:pt-16 space-y-8 max-w-4xl">
+        {/* Status Pill */}
+        <div className="inline-flex items-center space-x-2.5 px-3 py-1 rounded-full bg-emerald-500/[0.08] border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>{PERSONAL_INFO.status}</span>
+        </div>
+
+        {/* Big Headline */}
+        <div className="space-y-3">
+          <p className="text-xs font-mono uppercase tracking-widest text-emerald-400/90 font-medium">
+            {PERSONAL_INFO.role} ? Chennai, India
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+            Building intelligent systems with{' '}
+            <span className="text-gradient-ai">LLMs, RAG & AI</span>.
+          </h1>
+        </div>
+
+        {/* Bio Text */}
+        <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-normal">
+          {PERSONAL_INFO.bio}
+        </p>
+
+        {/* Minimal Tags */}
+        <div className="flex flex-wrap gap-2 pt-1 text-xs font-mono text-slate-400">
+          <Link
+            to="/skills/rag"
+            className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-slate-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
+          >
+            Multimodal RAG &rarr;
+          </Link>
+          <Link
+            to="/skills/langgraph"
+            className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-slate-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
+          >
+            LangGraph & State Graphs &rarr;
+          </Link>
+          <Link
+            to="/skills/llms"
+            className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-slate-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
+          >
+            LCEL & Groq API &rarr;
+          </Link>
+          <Link
+            to="/skills/machine-learning"
+            className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-slate-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors"
+          >
+            Machine Learning & Analytics &rarr;
+          </Link>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-3.5 pt-2">
+          <Link
+            to="/projects"
+            className="inline-flex items-center justify-center space-x-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition-all shadow-sm active:scale-[0.99]"
+          >
+            <span>Explore All Projects</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
+          <a
+            href={PERSONAL_INFO.resumeUrl}
+            download="Jeeva_MS_Resume.pdf"
+            className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.09] text-slate-100 hover:text-white border border-white/[0.1] font-medium text-sm transition-all"
+          >
+            <Download className="w-4 h-4 text-emerald-400" />
+            <span>Download Resume</span>
+          </a>
+
+          <button
+            onClick={onResumeClick}
+            className="inline-flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg bg-white/[0.02] hover:bg-white/[0.06] text-slate-400 hover:text-white border border-white/[0.06] text-sm font-medium transition-all"
+          >
+            <FileText className="w-4 h-4 text-slate-400" />
+            <span>Preview CV</span>
+          </button>
+        </div>
+
+        {/* Contact Links Strip */}
+        <div className="pt-6 border-t border-white/[0.06] flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm text-slate-400 font-mono">
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="inline-flex items-center space-x-1.5 hover:text-emerald-400 transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5 text-slate-500" />
+            <span>{PERSONAL_INFO.email}</span>
+          </a>
+
+          <span className="inline-flex items-center space-x-1.5 text-slate-400">
+            <Phone className="w-3.5 h-3.5 text-slate-500" />
+            <span>+91 {PERSONAL_INFO.phone}</span>
+          </span>
+
+          <span className="inline-flex items-center space-x-1.5 text-slate-400">
+            <MapPin className="w-3.5 h-3.5 text-slate-500" />
+            <span>{PERSONAL_INFO.location}</span>
+          </span>
+
+          <a
+            href={PERSONAL_INFO.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-1.5 hover:text-emerald-400 transition-colors"
+          >
+            <Github className="w-3.5 h-3.5 text-slate-500" />
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href={PERSONAL_INFO.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-1.5 hover:text-emerald-400 transition-colors"
+          >
+            <Linkedin className="w-3.5 h-3.5 text-slate-500" />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Flagship Project Highlight Card */}
+      {featuredProject && (
+        <section className="space-y-6 pt-4 border-t border-white/[0.06]">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Flagship Engineering Case Study</span>
+            </div>
+            <Link
+              to="/projects"
+              className="text-xs font-mono text-slate-400 hover:text-white flex items-center space-x-1"
+            >
+              <span>View All 4 Projects</span>
+              <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+            </Link>
+          </div>
+
+          <div className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#0c1017] border border-white/[0.08] hover:border-white/[0.15] transition-all space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7 space-y-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2.5 py-0.5 rounded border border-emerald-500/20 font-semibold">
+                    Multimodal RAG
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-400 bg-white/[0.03] px-2.5 py-0.5 rounded border border-white/[0.06]">
+                    5-Layer Extraction Architecture
+                  </span>
+                </div>
+
+                <div className="space-y-2">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+                    {featuredProject.title}
+                  </h2>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    {featuredProject.tagline}
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  {featuredProject.features.slice(0, 3).map((feat, idx) => (
+                    <div key={idx} className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <Link
+                    to={`/projects/${featuredProject.slug}`}
+                    className="inline-flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition-all"
+                  >
+                    <span>Read Full Case Study</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+
+                  {featuredProject.liveDemo && (
+                    <a
+                      href={featuredProject.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-lg bg-white/[0.05] hover:bg-white/[0.09] text-slate-200 hover:text-white border border-white/[0.08] text-xs sm:text-sm transition-all"
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+
+                  {featuredProject.github && (
+                    <a
+                      href={featuredProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-lg bg-white/[0.02] hover:bg-white/[0.06] text-slate-400 hover:text-white border border-white/[0.06] text-xs sm:text-sm transition-all"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <Link
+                  to={`/projects/${featuredProject.slug}`}
+                  className="block p-5 rounded-xl bg-[#090d14] border border-white/[0.06] hover:border-emerald-500/30 transition-all space-y-3"
+                >
+                  <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+                      Two-Stage Retrieval Pipeline
+                    </span>
+                    <span className="text-[10px] font-mono text-emerald-400">
+                      Details &rarr;
+                    </span>
+                  </div>
+
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-slate-300">
+                      <span className="text-slate-400">1. Ingestion:</span>
+                      <span className="text-emerald-300">PyMuPDF + pdfplumber</span>
+                    </div>
+                    <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-slate-300">
+                      <span className="text-slate-400">2. Vision:</span>
+                      <span className="text-cyan-300">Gemini Vision</span>
+                    </div>
+                    <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-slate-300">
+                      <span className="text-slate-400">3. Vector Store:</span>
+                      <span className="text-indigo-300">ChromaDB Embeddings</span>
+                    </div>
+                    <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-slate-300">
+                      <span className="text-slate-400">4. Reranking:</span>
+                      <span className="text-emerald-300">Cross-Encoder (Top 5)</span>
+                    </div>
+                    <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-slate-300">
+                      <span className="text-slate-400">5. Synthesis:</span>
+                      <span className="text-cyan-300">Groq Llama 3.3 70B</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Core Focus & What I Build Preview */}
+      <section className="space-y-6 pt-4 border-t border-white/[0.06]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
+            <Layers className="w-3.5 h-3.5" />
+            <span>Core Focus Areas</span>
+          </div>
+          <Link
+            to="/about"
+            className="text-xs font-mono text-slate-400 hover:text-white flex items-center space-x-1"
+          >
+            <span>Learn About Background</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            to="/skills/rag"
+            className="p-5 rounded-xl bg-[#0c1017] border border-white/[0.08] hover:border-emerald-500/30 transition-all space-y-2.5 group"
+          >
+            <span className="text-xs font-mono text-emerald-400 font-bold">01</span>
+            <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors">
+              Multimodal RAG Pipelines
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Two-stage vector search with neural cross-encoder reranking and Gemini Vision chart ingestion.
+            </p>
+          </Link>
+
+          <Link
+            to="/skills/langgraph"
+            className="p-5 rounded-xl bg-[#0c1017] border border-white/[0.08] hover:border-emerald-500/30 transition-all space-y-2.5 group"
+          >
+            <span className="text-xs font-mono text-emerald-400 font-bold">02</span>
+            <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors">
+              LangGraph & Agentic Graphs
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Deterministic cyclic state machines, dynamic tool routing, and schema validation.
+            </p>
+          </Link>
+
+          <Link
+            to="/skills/machine-learning"
+            className="p-5 rounded-xl bg-[#0c1017] border border-white/[0.08] hover:border-emerald-500/30 transition-all space-y-2.5 group"
+          >
+            <span className="text-xs font-mono text-emerald-400 font-bold">03</span>
+            <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors">
+              Machine Learning & EDA
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Time-series feature engineering, anomaly detection, predictive forecasting, and Streamlit dashboards.
+            </p>
+          </Link>
+
+          <Link
+            to="/skills/llms"
+            className="p-5 rounded-xl bg-[#0c1017] border border-white/[0.08] hover:border-emerald-500/30 transition-all space-y-2.5 group"
+          >
+            <span className="text-xs font-mono text-emerald-400 font-bold">04</span>
+            <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors">
+              Evaluation & Schema Safety
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Pydantic v2 data models, RAGAS faithfulness metrics, and sub-second Groq LPU inference.
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      {/* Active Frontier Preview */}
+      <section className="space-y-6 pt-4 border-t border-white/[0.06]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 uppercase tracking-wider">
+            <Compass className="w-3.5 h-3.5" />
+            <span>Currently Exploring & Building</span>
+          </div>
+          <Link
+            to="/exploring"
+            className="text-xs font-mono text-slate-400 hover:text-white flex items-center space-x-1"
+          >
+            <span>View All Research</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {CURRENTLY_EXPLORING.map((item, idx) => {
+            const isBuilding = item.status.toLowerCase().includes('building');
+            return (
+              <Link
+                key={idx}
+                to={item.link}
+                className="p-5 rounded-xl bg-[#0c1017] border border-white/[0.08] hover:border-white/[0.16] transition-all flex flex-col justify-between space-y-3 group"
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono text-emerald-400 font-bold">
+                      0{idx + 1}
+                    </span>
+                    <span
+                      className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                        isBuilding
+                          ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+                          : 'bg-white/[0.03] text-slate-400 border-white/[0.06]'
+                      }`}
+                    >
+                      {item.status}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-semibold text-white group-hover:text-emerald-300 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+                  <span>{item.tag}</span>
+                  <span className="text-emerald-400 group-hover:translate-x-0.5 transition-transform">
+                    Explore &rarr;
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Bottom Action CTA Strip */}
+      <section className="p-8 sm:p-10 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.08] text-center space-y-5">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Let?s Build Something Meaningful Together.
+        </h2>
+        <p className="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+          Open to full-time AI / GenAI Engineering roles, contract research, and innovative LLM system architecture.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <Link
+            to="/contact"
+            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm transition-all"
+          >
+            <span>Get in Touch</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <button
+            onClick={onResumeClick}
+            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-slate-200 text-sm font-medium transition-all"
+          >
+            <span>View Full Resume</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};

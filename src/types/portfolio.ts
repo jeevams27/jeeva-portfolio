@@ -1,10 +1,12 @@
 export interface Project {
   id: string;
+  slug: string;
   title: string;
-  category: 'Multimodal RAG / Generative AI' | 'Generative AI / NLP' | 'Machine Learning / Data Analytics';
+  category: string;
   tagline: string;
   description: string;
   featured?: boolean;
+  status?: string;
   problem: string;
   solution: string;
   features: string[];
@@ -26,7 +28,43 @@ export interface SkillCategory {
   skills: {
     name: string;
     highlight?: boolean;
+    slug?: string;
   }[];
+}
+
+export interface SkillTopicDetail {
+  id: string;
+  name: string;
+  category: string;
+  tagline: string;
+  whatIUseItFor: string;
+  myPracticalImplementation: string;
+  pipelineSteps: {
+    title: string;
+    desc: string;
+  }[];
+  whereIUsedIt: string;
+  relatedProjectSlug: string;
+  relatedProjectTitle: string;
+  relatedTechnologies: string[];
+}
+
+export interface ExploringTopicDetail {
+  id: string;
+  title: string;
+  tag: string;
+  status: string;
+  description: string;
+  whatItIs: string;
+  whyItMatters: string;
+  architectureFlow: {
+    step: string;
+    desc: string;
+  }[];
+  keyCapabilities: string[];
+  practicalApplication: string;
+  relatedProjectLink?: string;
+  relatedProjectTitle?: string;
 }
 
 export interface ExperienceItem {
@@ -55,8 +93,10 @@ export interface PipelineStage {
 }
 
 export interface ExploringItem {
+  id: string;
   title: string;
   tag: string;
   description: string;
   status: string;
+  link: string;
 }
