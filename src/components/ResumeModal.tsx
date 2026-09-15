@@ -103,76 +103,76 @@ Analyst – AI / LLM Practice | Innodata (Noida, India · Remote) | 29 May 2026 
         </button>
 
         {/* Header */}
-        <div className="space-y-4 border-b border-white/[0.06] pb-6 pr-10">
-          <div className="flex items-center space-x-2 text-sm font-mono text-emerald-400 uppercase tracking-wider font-bold">
+        <div className="space-y-3.5 border-b border-white/[0.06] pb-5 pr-10">
+          <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-emerald-400 uppercase tracking-wider font-bold">
             <span>Official Curriculum Vitae</span>
           </div>
 
           <div>
-            <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               {PERSONAL_INFO.name}
             </h3>
-            <p className="text-slate-300 text-sm sm:text-base font-mono mt-1">
+            <p className="text-slate-300 text-xs sm:text-sm font-mono mt-0.5">
               {PERSONAL_INFO.role} • {PERSONAL_INFO.location} • +91 {PERSONAL_INFO.phone}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-2.5 pt-1">
             <a
               href={PERSONAL_INFO.resumeUrl}
               download="Jeeva_MS_Resume.pdf"
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md shadow-emerald-500/20"
+              className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shadow-emerald-500/20"
             >
-              <Download className="w-4 h-4 sm:w-5 h-5" />
+              <Download className="w-4 h-4" />
               <span>Download PDF Resume</span>
             </a>
 
             <button
               onClick={handleCopyMarkdown}
-              className="inline-flex items-center space-x-2 px-4 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] text-slate-200 text-sm sm:text-base border border-white/[0.08] transition-all font-mono font-medium"
+              className="inline-flex items-center space-x-2 px-3.5 py-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] text-slate-200 text-xs sm:text-sm border border-white/[0.08] transition-all font-mono font-medium"
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'Copied' : 'Copy Plaintext'}</span>
             </button>
 
             <a
               href={`mailto:${PERSONAL_INFO.email}?subject=Inquiry%20regarding%20AI%20Engineering%20Role%20-%20Jeeva%20MS`}
-              className="inline-flex items-center space-x-2 px-4 py-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] text-slate-300 hover:text-white text-sm sm:text-base border border-white/[0.06] transition-all"
+              className="inline-flex items-center space-x-2 px-3.5 py-2.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] text-slate-300 hover:text-white text-xs sm:text-sm border border-white/[0.06] transition-all"
             >
-              <Mail className="w-4 h-4 text-emerald-400" />
+              <Mail className="w-3.5 h-3.5 text-emerald-400" />
               <span>Email Directly</span>
             </a>
           </div>
         </div>
 
         {/* Structured Resume Content */}
-        <div className="space-y-6 text-slate-300">
+        <div className="space-y-5 text-slate-300">
           {/* Summary */}
-          <div className="space-y-2 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
-            <h4 className="text-sm font-mono uppercase tracking-wider text-emerald-400 font-bold">
+          <div className="space-y-1.5 p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+            <h4 className="text-xs sm:text-sm font-mono uppercase tracking-wider text-emerald-400 font-bold">
               Professional Summary
             </h4>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
               {PERSONAL_INFO.bio}
             </p>
           </div>
 
           {/* Education */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-mono uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-bold">
-              <GraduationCap className="w-4 h-4 text-emerald-400" />
+          <div className="space-y-2.5">
+            <h4 className="text-xs sm:text-sm font-mono uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-bold">
+              <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
               <span>Education</span>
             </h4>
-            <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               <div>
-                <p className="font-bold text-white text-base sm:text-lg">{PERSONAL_INFO.education.institution}</p>
-                <p className="text-sm sm:text-base text-slate-300">{PERSONAL_INFO.education.degree}</p>
+                <p className="font-bold text-white text-sm sm:text-base">{PERSONAL_INFO.education.institution}</p>
+                <p className="text-xs sm:text-sm text-slate-300">{PERSONAL_INFO.education.degree}</p>
               </div>
-              <div className="flex items-center space-x-3">
-                <span className="text-xs sm:text-sm font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-500/30 font-bold">
+              <div className="flex items-center space-x-2.5">
+                <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-500/30 font-bold">
                   CGPA: {PERSONAL_INFO.education.cgpa}
                 </span>
-                <span className="text-xs sm:text-sm font-mono text-slate-400">
+                <span className="text-xs font-mono text-slate-400">
                   {PERSONAL_INFO.education.period}
                 </span>
               </div>
@@ -180,36 +180,36 @@ Analyst – AI / LLM Practice | Innodata (Noida, India · Remote) | 29 May 2026 
           </div>
 
           {/* Certifications */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-mono uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-bold">
-              <Award className="w-4 h-4 text-emerald-400" />
+          <div className="space-y-2.5">
+            <h4 className="text-xs sm:text-sm font-mono uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-bold">
+              <Award className="w-3.5 h-3.5 text-emerald-400" />
               <span>Certifications</span>
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {PERSONAL_INFO.certifications.map((cert, cIdx) => (
-                <div key={cIdx} className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1">
-                  <p className="font-bold text-white text-sm sm:text-base">{cert.title}</p>
-                  <p className="text-xs sm:text-sm font-mono text-emerald-400 font-medium">{cert.issuer}</p>
+                <div key={cIdx} className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-0.5">
+                  <p className="font-bold text-white text-xs sm:text-sm">{cert.title}</p>
+                  <p className="text-[11px] sm:text-xs font-mono text-emerald-400 font-medium">{cert.issuer}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Key Projects */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-mono uppercase tracking-wider text-slate-300 font-bold">
+          <div className="space-y-2.5">
+            <h4 className="text-xs sm:text-sm font-mono uppercase tracking-wider text-slate-300 font-bold">
               Featured Projects
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {PROJECTS.map((proj) => (
-                <div key={proj.id} className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
+                <div key={proj.id} className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                   <div className="flex items-center justify-between font-semibold text-slate-200">
-                    <span className="text-base sm:text-lg font-bold text-white">{proj.title}</span>
-                    <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-500/30 font-bold">
+                    <span className="text-sm sm:text-base font-bold text-white">{proj.title}</span>
+                    <span className="text-[11px] sm:text-xs font-mono text-emerald-300 bg-emerald-950/60 px-2.5 py-0.5 rounded-lg border border-emerald-500/30 font-bold">
                       {proj.category}
                     </span>
                   </div>
-                  <ul className="space-y-1.5 list-disc list-inside text-slate-300 text-sm sm:text-base pl-1">
+                  <ul className="space-y-1 list-disc list-inside text-slate-300 text-xs sm:text-sm pl-1">
                     {proj.features.slice(0, 3).map((f, fIdx) => (
                       <li key={fIdx}>{f}</li>
                     ))}

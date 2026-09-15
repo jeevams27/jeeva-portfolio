@@ -14,24 +14,24 @@ export const ExploringPage: React.FC = () => {
 
       <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-24 sm:space-y-32">
         {/* Page Header */}
-        <div className="space-y-5 max-w-4xl">
-          <div className="flex items-center space-x-2.5 text-sm sm:text-base font-mono text-violet-400 uppercase tracking-widest font-bold">
-            <span className="w-2.5 h-2.5 rounded-full bg-violet-400"></span>
+        <div className="space-y-4 max-w-4xl">
+          <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-violet-400 uppercase tracking-widest font-bold">
+            <span className="w-2 h-2 rounded-full bg-violet-400"></span>
             <span>Active Research & Building</span>
           </div>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.05]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Currently{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-cyan-400">
               Exploring & Building
             </span>.
           </h1>
-          <p className="text-xl sm:text-2xl text-slate-300 leading-relaxed font-normal max-w-3xl">
+          <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl">
             Autonomous multi-agent workflows, cyclic state machines with LangGraph, and automated quotation intelligence.
           </p>
         </div>
 
         {/* Numbered Topic Showcase (Editorial Layout) */}
-        <div className="space-y-16 sm:space-y-24">
+        <div className="space-y-14 sm:space-y-20">
           {CURRENTLY_EXPLORING.map((item, idx) => {
             const isBuilding = item.status.toLowerCase().includes('building');
             const num = `0${idx + 1}`;
@@ -41,21 +41,21 @@ export const ExploringPage: React.FC = () => {
               <Link
                 key={idx}
                 to={item.link}
-                className="block pt-12 sm:pt-16 first:pt-0 border-t border-white/[0.08] first:border-none space-y-6 group"
+                className="block pt-10 sm:pt-14 first:pt-0 border-t border-white/[0.08] first:border-none space-y-5 group"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center space-x-3">
-                    <span className={`text-lg sm:text-xl font-mono ${accentColor} font-bold tracking-wider`}>
+                  <div className="flex items-center space-x-2.5">
+                    <span className={`text-base sm:text-lg font-mono ${accentColor} font-bold tracking-wider`}>
                       {num}
                     </span>
                     <span className="text-slate-600">—</span>
-                    <span className="text-sm sm:text-base font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                    <span className="text-xs sm:text-sm font-mono text-slate-400 uppercase tracking-wider font-semibold">
                       {item.tag}
                     </span>
                   </div>
 
                   <span
-                    className={`text-sm sm:text-base font-mono px-4 py-1.5 rounded-full border font-semibold ${
+                    className={`text-xs sm:text-sm font-mono px-3.5 py-1 rounded-full border font-semibold ${
                       isBuilding
                         ? 'bg-emerald-950/50 border-emerald-500/30 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.15)]'
                         : 'bg-white/[0.04] border-white/[0.08] text-slate-300'
@@ -65,12 +65,12 @@ export const ExploringPage: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="space-y-3">
-                  <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight group-hover:text-violet-200 transition-colors flex items-center justify-between">
+                <div className="space-y-2.5">
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight group-hover:text-violet-200 transition-colors flex items-center justify-between">
                     <span>{item.title}</span>
-                    <ArrowRight className="w-6 h-6 sm:w-8 sm:h-8 text-slate-500 group-hover:text-violet-400 group-hover:translate-x-2 transition-all shrink-0 ml-4" />
+                    <ArrowRight className="w-5 h-5 sm:w-6 h-6 text-slate-500 group-hover:text-violet-400 group-hover:translate-x-1.5 transition-all shrink-0 ml-3" />
                   </h2>
-                  <p className="text-lg sm:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-4xl font-normal">
+                  <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-4xl font-normal">
                     {item.description}
                   </p>
                 </div>
@@ -80,33 +80,33 @@ export const ExploringPage: React.FC = () => {
         </div>
 
         {/* Why Agentic State Graphs Matter */}
-        <section className="space-y-8 pt-12 border-t border-white/[0.08]">
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2.5 text-sm sm:text-base font-mono text-violet-400 uppercase tracking-widest font-bold">
-              <Workflow className="w-5 h-5" />
+        <section className="space-y-7 pt-10 border-t border-white/[0.08]">
+          <div className="space-y-2.5">
+            <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-violet-400 uppercase tracking-widest font-bold">
+              <Workflow className="w-4 h-4" />
               <span>Architectural Rationale</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
               Moving Beyond Linear Chains
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <div className="p-8 rounded-3xl bg-[#110e20] border border-violet-500/25 space-y-3 shadow-sm">
-              <span className="text-base font-mono text-violet-400 font-bold">01 / Cyclic Graphs</span>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-1">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#110e20] border border-violet-500/25 space-y-2.5 shadow-sm">
+              <span className="text-xs sm:text-sm font-mono text-violet-400 font-bold">01 / Cyclic Graphs</span>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 LangGraph enables cyclical reasoning loops and automatic retry logic on schema validation failures.
               </p>
             </div>
-            <div className="p-8 rounded-3xl bg-[#09121d] border border-cyan-500/25 space-y-3 shadow-sm">
-              <span className="text-base font-mono text-cyan-400 font-bold">02 / Dynamic Tools</span>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#09121d] border border-cyan-500/25 space-y-2.5 shadow-sm">
+              <span className="text-xs sm:text-sm font-mono text-cyan-400 font-bold">02 / Dynamic Tools</span>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 State-driven routing between catalog lookup, mathematical pricing calculation, and tax engines.
               </p>
             </div>
-            <div className="p-8 rounded-3xl bg-[#0a1512] border border-emerald-500/25 space-y-3 shadow-sm">
-              <span className="text-base font-mono text-emerald-400 font-bold">03 / Checkpoints</span>
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#0a1512] border border-emerald-500/25 space-y-2.5 shadow-sm">
+              <span className="text-xs sm:text-sm font-mono text-emerald-400 font-bold">03 / Checkpoints</span>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 State persistence enables human approval gates and auditable conversation time-travel.
               </p>
             </div>
