@@ -86,11 +86,7 @@ AI & GenAI Engineer building practical applications with Large Language Models (
 - AI-powered resume screening analyzing resumes against job descriptions with ATS scoring.
 - Tech: Python, LangChain, Groq, Streamlit, NLP, LLMs.
 
-### 3. AI Quotation Drafting Copilot (Agentic Workflow / FastAPI)
-- Automated commercial quotation generation from unstructured inquiries with LangGraph & Pydantic.
-- Tech: Python, LLMs, PostgreSQL, Pydantic, FastAPI, LangChain, LangGraph.
-
-### 4. Energy Management / Electricity Analysis (ML / Data Analytics)
+### 3. Energy Management / Electricity Analysis (ML / Data Analytics)
 - Machine learning pipeline for temporal energy consumption analysis and anomaly detection.
 - Tech: Python, Pandas, NumPy, Matplotlib, Scikit-learn.
 `;

@@ -10,8 +10,6 @@ import {
   Layers,
   ArrowRight,
   CheckCircle2,
-  Clock,
-  Cpu,
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
@@ -19,23 +17,14 @@ export const Projects: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('all');
 
   const featuredProject = PROJECTS.find((p) => p.featured) || PROJECTS[0];
-  const regularProjects = PROJECTS.filter((p) => !p.featured && !p.isUpcoming);
-  const upcomingProjects = PROJECTS.filter((p) => p.isUpcoming);
+  const regularProjects = PROJECTS.filter((p) => !p.featured);
 
-  // Filter logic
-  const filteredCompletedProjects =
-    filterCategory === 'all' || filterCategory === 'shipped'
+  const filteredRegularProjects =
+    filterCategory === 'all'
       ? regularProjects
-      : filterCategory === 'upcoming'
-      ? []
       : regularProjects.filter((p) =>
           p.category.toLowerCase().includes(filterCategory.toLowerCase())
         );
-
-  const showUpcoming =
-    filterCategory === 'all' ||
-    filterCategory === 'upcoming' ||
-    filterCategory === 'agentic';
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative border-t border-surface-border/40">
@@ -51,7 +40,7 @@ export const Projects: React.FC = () => {
               Featured AI Engineering Projects
             </h2>
             <p className="text-slate-400 text-sm sm:text-base max-w-2xl">
-              Production-focused applications built with Multimodal RAG, LLMs, Agentic State Machines, and Machine Learning.
+              Production-focused applications built with Multimodal RAG, LLMs, and Applied Machine Learning.
             </p>
           </div>
 
@@ -86,16 +75,6 @@ export const Projects: React.FC = () => {
               }`}
             >
               Machine Learning
-            </button>
-            <button
-              onClick={() => setFilterCategory('upcoming')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                filterCategory === 'upcoming'
-                  ? 'bg-cyan-500 text-slate-950 font-semibold shadow-sm'
-                  : 'text-cyan-400 hover:text-cyan-300'
-              }`}
-            >
-              ⚡ Upcoming Projects
             </button>
           </div>
         </div>
@@ -237,54 +216,16 @@ export const Projects: React.FC = () => {
           </div>
         )}
 
-        {/* Regular Shipped Projects Grid */}
-        {filteredCompletedProjects.length > 0 && (
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2 text-xs font-mono text-slate-400 uppercase tracking-wider">
-              <span>Shipped & Active Projects</span>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredCompletedProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onSelect={(p) => setSelectedProject(p)}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* UPCOMING PROJECTS SECTION */}
-        {showUpcoming && upcomingProjects.length > 0 && (
-          <div className="space-y-4 pt-6 border-t border-surface-border/40">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
-                </span>
-                <h3 className="text-lg font-bold text-white tracking-tight flex items-center space-x-2">
-                  <span>Upcoming Project</span>
-                  <span className="text-xs font-mono text-cyan-400 bg-cyan-950/70 border border-cyan-500/30 px-2 py-0.5 rounded-full font-normal">
-                    In Active Development
-                  </span>
-                </h3>
-              </div>
-              <span className="text-xs font-mono text-slate-500 hidden sm:inline">
-                Architecture & Agent State Machine Design
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {upcomingProjects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onSelect={(p) => setSelectedProject(p)}
-                />
-              ))}
-            </div>
+        {/* Regular Projects Grid */}
+        {filteredRegularProjects.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filteredRegularProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onSelect={(p) => setSelectedProject(p)}
+              />
+            ))}
           </div>
         )}
 
