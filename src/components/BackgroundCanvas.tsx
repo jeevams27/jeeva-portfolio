@@ -34,7 +34,7 @@ export const BackgroundCanvas: React.FC = () => {
       alpha: number;
     }> = [];
 
-    const colors = ['#10b981', '#06b6d4', '#6366f1', '#94a3b8'];
+    const colors = ['#10b981', '#06b6d4', '#8b5cf6', '#6366f1', '#38bdf8'];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
