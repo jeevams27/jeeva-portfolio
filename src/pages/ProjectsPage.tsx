@@ -19,7 +19,7 @@ export const ProjectsPage: React.FC = () => {
         <div className="space-y-4 max-w-4xl">
           <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-cyan-400 uppercase tracking-widest font-bold">
             <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-            <span>Projects / Case Studies</span>
+            <span>Featured Projects</span>
           </div>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08]">
             Things I’ve Built with{' '}
@@ -28,7 +28,7 @@ export const ProjectsPage: React.FC = () => {
             </span>.
           </h1>
           <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl">
-            Detailed case studies of production systems, multimodal RAG pipelines, agentic state graphs, and applied ML models.
+            Production systems, multimodal RAG pipelines, agentic state graphs, and applied ML models.
           </p>
         </div>
 
@@ -65,10 +65,8 @@ export const ProjectsPage: React.FC = () => {
                 {/* Main Content Layout */}
                 <div className="space-y-5">
                   {/* Big Title */}
-                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight group-hover:text-cyan-200 transition-colors">
-                    <Link to={`/projects/${project.slug}`} className="hover:underline decoration-cyan-500/40 underline-offset-8">
-                      {project.title}
-                    </Link>
+                  <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                    {project.title}
                   </h2>
 
                   {/* Tagline / Narrative */}
@@ -100,23 +98,15 @@ export const ProjectsPage: React.FC = () => {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                    <Link
-                      to={`/projects/${project.slug}`}
-                      className="inline-flex items-center space-x-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md shadow-cyan-500/20 active:scale-[0.99]"
-                    >
-                      <span>Read Case Study</span>
-                      <ArrowRight className="w-4 h-4 sm:w-5 h-5" />
-                    </Link>
-
                     {project.liveDemo && (
                       <a
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/[0.12] text-sm sm:text-base font-semibold transition-all"
+                        className="inline-flex items-center space-x-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md shadow-cyan-500/20 active:scale-[0.99]"
                       >
                         <span>Live Demo</span>
-                        <ExternalLink className="w-4 h-4 text-cyan-400" />
+                        <ExternalLink className="w-4 h-4 text-slate-950" />
                       </a>
                     )}
 
@@ -125,7 +115,11 @@ export const ProjectsPage: React.FC = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.08] text-sm sm:text-base font-medium transition-all"
+                        className={`inline-flex items-center space-x-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl text-sm sm:text-base font-semibold transition-all ${
+                          !project.liveDemo
+                            ? 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20 active:scale-[0.99]'
+                            : 'bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/[0.12]'
+                        }`}
                       >
                         <Github className="w-4 h-4 sm:w-5 h-5" />
                         <span>GitHub Code</span>

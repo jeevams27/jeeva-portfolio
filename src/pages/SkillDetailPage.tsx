@@ -127,14 +127,14 @@ export const SkillDetailPage: React.FC = () => {
                 {detail.whereIUsedIt}
               </h3>
               <p className="text-sm sm:text-base text-slate-300 font-normal">
-                Inspect the full production case study, architecture flow, and live demo.
+                Inspect the full production implementation, architecture flow, and live demo.
               </p>
             </div>
             <Link
-              to={`/projects/${detail.relatedProjectSlug}`}
+              to="/projects"
               className="inline-flex items-center space-x-2.5 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white font-bold text-sm sm:text-base transition-all shadow-lg shadow-purple-500/25 shrink-0 active:scale-[0.99]"
             >
-              <span>View Project Case Study</span>
+              <span>View Projects</span>
               <ArrowRight className="w-4 h-4 sm:w-5 h-5" />
             </Link>
           </div>

@@ -168,7 +168,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-cyan-400 uppercase tracking-wider font-bold">
                 <Sparkles className="w-4 h-4 text-cyan-400" />
-                <span>Flagship Engineering Case Study</span>
+                <span>Flagship Engineering Project</span>
               </div>
               <Link
                 to="/projects"
@@ -213,23 +213,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3.5 pt-3">
-                    <Link
-                      to={`/projects/${featuredProject.slug}`}
-                      className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md shadow-cyan-500/20"
-                    >
-                      <span>Read Full Case Study</span>
-                      <ArrowRight className="w-4 h-4 sm:w-5 h-5" />
-                    </Link>
-
                     {featuredProject.liveDemo && (
                       <a
                         href={featuredProject.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/[0.12] text-sm sm:text-base font-semibold transition-all"
+                        className="inline-flex items-center space-x-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm sm:text-base transition-all shadow-md shadow-cyan-500/20 active:scale-[0.99]"
                       >
                         <span>Live Demo</span>
-                        <ExternalLink className="w-4 h-4 text-cyan-400" />
+                        <ExternalLink className="w-4 h-4 text-slate-950" />
                       </a>
                     )}
 
@@ -238,26 +230,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
                         href={featuredProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-slate-400 hover:text-white border border-white/[0.08] text-sm sm:text-base font-medium transition-all"
+                        className="inline-flex items-center space-x-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/[0.12] text-sm sm:text-base font-semibold transition-all"
                       >
-                        <Github className="w-4 h-4" />
-                        <span>GitHub</span>
+                        <Github className="w-4 h-4 sm:w-5 h-5" />
+                        <span>GitHub Code</span>
                       </a>
                     )}
                   </div>
                 </div>
 
                 <div className="lg:col-span-5">
-                  <Link
-                    to={`/projects/${featuredProject.slug}`}
-                    className="block p-6 rounded-2xl bg-[#090e18] border border-cyan-500/25 hover:border-cyan-500/45 transition-all space-y-3.5 shadow-inner"
-                  >
+                  <div className="block p-6 rounded-2xl bg-[#090e18] border border-cyan-500/25 space-y-3.5 shadow-inner">
                     <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
                       <span className="text-xs sm:text-sm font-mono uppercase tracking-wider text-cyan-300 font-bold">
                         Two-Stage Retrieval Pipeline
                       </span>
                       <span className="text-xs sm:text-sm font-mono text-cyan-400 font-bold">
-                        Details &rarr;
+                        Architecture
                       </span>
                     </div>
 
@@ -283,7 +272,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onResumeClick }) => {
                         <span className="text-blue-300 font-bold">Groq Llama 3.3 70B</span>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
