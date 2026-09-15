@@ -202,7 +202,7 @@ export const PROJECTS: Project[] = [
       'NLP',
       'LLMs',
     ],
-    github: 'https://github.com/jeevams27',
+    github: 'https://github.com/jeevams27/Langchain-Resume-Screener',
     architectureNodes: [
       {
         title: '1. Resume & JD Parsing',
@@ -255,7 +255,7 @@ export const PROJECTS: Project[] = [
       'Matplotlib',
       'Scikit-learn',
     ],
-    github: 'https://github.com/jeevams27',
+    github: 'https://github.com/jeevams27/Energy-Usage-Monitoring-and-Management-System',
     architectureNodes: [
       {
         title: '1. Raw Energy Data Ingestion',

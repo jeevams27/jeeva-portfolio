@@ -85,10 +85,12 @@ AI & GenAI Engineer building practical applications with Large Language Models (
 ### 2. AI Resume Screener (Generative AI / NLP)
 - AI-powered resume screening analyzing resumes against job descriptions with ATS scoring.
 - Tech: Python, LangChain, Groq, Streamlit, NLP, LLMs.
+- GitHub: https://github.com/jeevams27/Langchain-Resume-Screener
 
 ### 3. Energy Management / Electricity Analysis (ML / Data Analytics)
 - Machine learning pipeline for temporal energy consumption analysis and anomaly detection.
 - Tech: Python, Pandas, NumPy, Matplotlib, Scikit-learn.
+- GitHub: https://github.com/jeevams27/Energy-Usage-Monitoring-and-Management-System
 `;
   };
 
