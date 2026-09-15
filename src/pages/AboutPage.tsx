@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import {
   GraduationCap,
-  Award,
   MapPin,
   ArrowRight,
   Sparkles,
@@ -47,7 +46,7 @@ export const AboutPage: React.FC = () => {
       {/* Ambient Top Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] ambient-glow-about pointer-events-none -z-10" />
 
-      <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-24 sm:space-y-32">
+      <div className="py-8 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-16 sm:space-y-24">
         {/* Page Header */}
         <div className="space-y-4 max-w-4xl">
           <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-emerald-400 uppercase tracking-wider font-bold">
@@ -65,9 +64,9 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Main Grid */}
+        {/* Main Grid: Balanced 2 Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* Left Column: Background narrative, Education & Certs */}
+          {/* Left Column: Background narrative & Education */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-3">
               <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -84,49 +83,17 @@ export const AboutPage: React.FC = () => {
                 <GraduationCap className="w-4 h-4 text-emerald-400" />
                 <span>Formal Education</span>
               </div>
-              <div className="p-6 sm:p-7 rounded-2xl bg-[#0a1512] border border-emerald-500/25 space-y-3 shadow-sm">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <h3 className="font-bold text-white text-lg sm:text-xl">
-                    {PERSONAL_INFO.education.institution}
-                  </h3>
-                  <span className="text-xs sm:text-sm font-mono text-emerald-300 bg-emerald-950/70 px-3 py-1 rounded-lg border border-emerald-500/30 font-bold">
-                    CGPA: {PERSONAL_INFO.education.cgpa}
-                  </span>
-                </div>
+              <div className="p-6 sm:p-7 rounded-2xl bg-[#0a1512] border border-emerald-500/25 space-y-2.5 shadow-sm">
+                <h3 className="font-bold text-white text-lg sm:text-xl">
+                  {PERSONAL_INFO.education.institution}
+                </h3>
                 <p className="text-sm sm:text-base text-slate-300 font-normal">
                   {PERSONAL_INFO.education.degree}
                 </p>
-                <div className="flex items-center space-x-3 text-xs sm:text-sm font-mono text-slate-400 pt-0.5">
-                  <span className="flex items-center space-x-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-teal-400" />
-                    <span>Chennai, TN</span>
-                  </span>
-                  <span>•</span>
-                  <span>{PERSONAL_INFO.education.period}</span>
+                <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono text-slate-400 pt-1">
+                  <MapPin className="w-3.5 h-3.5 text-teal-400" />
+                  <span>Chennai, TN</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Certifications Block */}
-            <div className="pt-4 space-y-3.5">
-              <div className="flex items-center space-x-2 text-xs sm:text-sm font-mono uppercase tracking-wider text-indigo-400 font-bold">
-                <Award className="w-4 h-4 text-indigo-400" />
-                <span>Verified Certifications</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {PERSONAL_INFO.certifications.map((cert, cIdx) => (
-                  <div
-                    key={cIdx}
-                    className="p-5 rounded-xl bg-[#0e101c] border border-indigo-500/25 space-y-1.5 shadow-sm"
-                  >
-                    <p className="text-sm sm:text-base font-bold text-slate-200">
-                      {cert.title}
-                    </p>
-                    <p className="text-xs sm:text-sm font-mono text-indigo-300 font-medium">
-                      {cert.issuer}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -169,29 +136,31 @@ export const AboutPage: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
 
-            {/* Quick Actions Card */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-[#0a101d] to-cyan-950/30 border border-emerald-500/25 flex flex-wrap items-center justify-between gap-4 shadow-sm">
-              <div className="space-y-1">
-                <h4 className="text-lg sm:text-xl font-bold text-white">Explore My Work</h4>
-                <p className="text-xs sm:text-sm text-slate-400">Inspect case studies and live deployments.</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shadow-emerald-500/20"
-                >
-                  <span>View Projects</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  to="/experience"
-                  className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/[0.12] text-xs sm:text-sm font-semibold transition-all"
-                >
-                  <span>Experience</span>
-                </Link>
-              </div>
-            </div>
+        {/* Quick Actions / Explore My Work Full Banner */}
+        <div className="p-7 sm:p-10 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-[#0a101d] to-cyan-950/30 border border-emerald-500/25 flex flex-col sm:flex-row sm:items-center justify-between gap-5 shadow-sm">
+          <div className="space-y-1">
+            <h3 className="text-lg sm:text-xl font-bold text-white">Explore My Work</h3>
+            <p className="text-xs sm:text-sm text-slate-300">
+              Inspect production case studies, architecture flows, and live deployments.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <Link
+              to="/projects"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shadow-emerald-500/20"
+            >
+              <span>View Projects</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/experience"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 border border-white/[0.12] text-xs sm:text-sm font-semibold transition-all"
+            >
+              <span>Experience</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -75,10 +75,10 @@ export const ExperiencePage: React.FC<ExperiencePageProps> = ({ onResumeClick })
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1.5">
               <h3 className="text-xl sm:text-2xl font-bold text-white">
-                Education & Professional Certifications
+                Education & Academic Background
               </h3>
               <p className="text-sm sm:text-base text-slate-400">
-                Saveetha Engineering College (CGPA: {PERSONAL_INFO.education.cgpa}) · IBM & ExcelR Certified
+                Saveetha Engineering College · B.Tech Artificial Intelligence & Data Science
               </p>
             </div>
             <Link
