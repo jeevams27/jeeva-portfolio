@@ -6,8 +6,6 @@ import {
   ArrowUpRight,
   ChevronRight,
   CheckCircle2,
-  Clock,
-  Sparkles,
 } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -19,30 +17,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
   return (
     <div
       onClick={() => onSelect(project)}
-      className={`glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 cursor-pointer group relative border ${
-        project.isUpcoming
-          ? 'border-cyan-500/30 hover:border-cyan-400/60 bg-gradient-to-br from-[#0c1524] via-[#0d121e] to-[#07090e]'
-          : 'border-surface-border hover:border-emerald-500/40'
-      }`}
+      className="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 cursor-pointer group relative border border-surface-border hover:border-emerald-500/40"
     >
       {/* Top Meta */}
       <div className="space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-400">
-              <span>{project.category}</span>
-            </span>
-
-            {project.isUpcoming && (
-              <span className="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-[10px] font-mono font-semibold text-cyan-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span>Upcoming Project</span>
-              </span>
-            )}
-          </div>
+        <div className="flex items-center justify-between">
+          <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-400">
+            <span>{project.category}</span>
+          </span>
 
           <div className="flex items-center space-x-2" onClick={(e) => e.stopPropagation()}>
-            {project.github && !project.isUpcoming && (
+            {project.github && (
               <a
                 href={project.github}
                 target="_blank"
@@ -64,12 +49,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
                 <ExternalLink className="w-4 h-4" />
               </a>
             )}
-            {project.isUpcoming && (
-              <span className="text-[10px] font-mono text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800 flex items-center space-x-1">
-                <Clock className="w-3 h-3 text-cyan-400" />
-                <span>In Dev</span>
-              </span>
-            )}
           </div>
         </div>
 
@@ -88,11 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
         <div className="space-y-2 pt-1">
           {project.features.slice(0, 3).map((feat, idx) => (
             <div key={idx} className="flex items-start space-x-2 text-xs text-slate-400">
-              <CheckCircle2
-                className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                  project.isUpcoming ? 'text-cyan-400/80' : 'text-emerald-400/80'
-                }`}
-              />
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400/80 shrink-0 mt-0.5" />
               <span className="line-clamp-1">{feat}</span>
             </div>
           ))}
@@ -117,12 +92,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
           )}
         </div>
 
-        <div
-          className={`flex items-center justify-between text-xs font-mono group-hover:translate-x-1 transition-transform ${
-            project.isUpcoming ? 'text-cyan-400' : 'text-emerald-400'
-          }`}
-        >
-          <span>{project.isUpcoming ? 'View Architecture & Pipeline Design' : 'View Architecture & Details'}</span>
+        <div className="flex items-center justify-between text-xs text-emerald-400 font-mono group-hover:translate-x-1 transition-transform">
+          <span>View Architecture & Details</span>
           <ChevronRight className="w-4 h-4" />
         </div>
       </div>
