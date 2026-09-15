@@ -19,7 +19,7 @@ export const PERSONAL_INFO = {
   status: 'Open to AI / GenAI Engineering Opportunities',
   resumeUrl: '/Jeeva_MS_Resume.pdf',
   bio: 'Artificial Intelligence and Data Science graduate with hands-on experience in Python, Machine Learning, Generative AI, LLMs, and RAG. Experienced in developing AI applications using LangChain, LangGraph, ChromaDB and Streamlit, with exposure to prompt engineering, document processing, retrieval, and model evaluation.',
-  aboutDetails: `I am an Artificial Intelligence and Data Science graduate (2021 – 2025) from Saveetha Engineering College, Chennai (CGPA: 7.6) with hands-on engineering experience in Python, Machine Learning, Generative AI, LLMs, and RAG pipelines. I specialize in building practical AI applications using modern frameworks like LangChain, LangGraph, ChromaDB, and Streamlit. My focus is on robust document processing, two-stage vector retrieval with cross-encoder reranking, agentic orchestration, and model evaluation (RAGAS, LLM-as-Judge) with type-safe schema validation.`,
+  aboutDetails: `I am an Artificial Intelligence and Data Science graduate from Saveetha Engineering College, Chennai with hands-on engineering experience in Python, Machine Learning, Generative AI, LLMs, and RAG pipelines. I specialize in building practical AI applications using modern frameworks like LangChain, LangGraph, ChromaDB, and Streamlit. My focus is on robust document processing, two-stage vector retrieval with cross-encoder reranking, agentic orchestration, and model evaluation (RAGAS, LLM-as-Judge) with type-safe schema validation.`,
   education: {
     degree: 'B.Tech — Artificial Intelligence & Data Science',
     institution: 'Saveetha Engineering College, Chennai',
